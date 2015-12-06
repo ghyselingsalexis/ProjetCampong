@@ -1,0 +1,166 @@
+﻿<div class="containerAdmin">
+    <h3 class="text-center text-primary">Gestion des emplacements</h3>
+    <div class="well">
+        <a class="btn btn-default btnAjouterAdmin" ng-click="ajouter()">Ajouter</a>
+
+    </div>
+    <div class="cadreExtTable">
+        <div class="cadreIntTable">
+            <table class="table table-striped">
+                <tr>
+                    <td class="enteteTable">Numéro</td>
+                    <td class="enteteTable tireTableEntete">Type</td>
+                    <td class="enteteTable tireTableEntete">Surface</td>
+                    <td class="enteteTable tireTableEntete">Nombre de Places</td>
+                    <td class="enteteTable tireTableEntete">Prix de base</td>
+                    <td class="enteteTable tireTableEntete">Prix Enfant supplémentaire</td>
+                    <td class="enteteTable tireTableEntete">Prix Adulte supplémentaire</td>
+                    <td class="enteteTable tireTableEntete">Prix pour un Véhicule</td>
+                    <td class="enteteTable tireTableEntete">Prix de l'électricité </td>
+                    <td class="enteteTable tireTableEntete">Date de début de Maintenance</td>
+                    <td class="enteteTable tireTableEntete">Date de fin de Maintenance</td>
+                    <td class="enteteTable tireTableEntete"></td>
+                </tr>
+                <tr ng-repeat="emplacement in emplacements" ng-click="modifier(emplacement)">
+                    <td align="center">{{emplacement.Numero}}</td>
+                    <td class="tireTableContenu">{{emplacement.Type}}</td>
+                    <td class="tireTableContenu">{{emplacement.Surface}}</td>
+                    <td class="tireTableContenu">{{emplacement.NbPlaces}}</td>
+                    <td class="tireTableContenu">{{emplacement.PrixBase}}</td>
+                    <td class="tireTableContenu">{{emplacement.PrixEnfSup}}</td>
+                    <td class="tireTableContenu">{{emplacement.PrixAdultSup}}</td>
+                    <td class="tireTableContenu">{{emplacement.PrixVehicule}}</td>
+                    <td class="tireTableContenu">{{emplacement.PrixElectricite}}</td>
+                    <td class="tireTableContenu">{{emplacement.DateDebMaintenance | date:'dd-MM-yyyy' ||  {} }}</td>
+                    <td class="tireTableContenu">{{emplacement.DateFinMaintenance | date:'dd-MM-yyyy' || {} }}</td>
+                    <td class="glyphicon glyphicon-remove tireTableContenuSupprimer" ng-click="supprimer($index)"> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+    <!-- Modification d'un emplacement-->
+    <script type="text/ng-template" id="GestionEmplacement.html">
+        <div class="modal-header"><h3 class="modal-title">Modifier un emplacement</h3></div>
+        <form role="form" class="modal-body">
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select ng-model="emplacement.Type">
+                    <option>
+                        Tente
+                    </option>
+                    <option>
+                        Mobile-home
+                    </option>
+                    <option>
+                        Chalet
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="surface">Surface</label>
+                <input type="text" class="form-control" id="Surface" ng-model="emplacement.Surface" />
+            </div>
+            <div class="form-group">
+                <label for="nbPlaces">Nombre de places</label>
+                <input type="text" class="form-control" id="NbPlaces" ng-model="emplacement.NbPlaces" />
+            </div>
+            <div class="form-group">
+                <label for="prixBase">Prix de Base</label>
+                <input type="text" class="form-control" id="prixBase" ng-model="emplacement.PrixBase" />
+            </div>
+            <div class="form-group">
+                <label for="prixEnf">Prix pour un enfant supplémentaire</label>
+                <input type="text" class="form-control" id="PrixEnf" ng-model="emplacement.PrixEnfSup" />
+            </div>
+            <div class="form-group">
+                <label for="prixAdult">Prix pour un adulte supplémentaire</label>
+                <input type="text" class="form-control" id="PrixAdult" ng-model="emplacement.PrixAdultSup" />
+            </div>
+            <div class="form-group">
+                <label for="prixVehicule">Prix pour stationner un véhicule</label>
+                <input type="text" class="form-control" id="PrixVehicule" ng-model="emplacement.PrixVehicule" />
+            </div>
+            <div class="form-group">
+                <label for="prixElectricite">Prix pour la consommation d'électricté</label>
+                <input type="text" class="form-control" id="PrixElectricte" ng-model="emplacement.PrixElectricite" />
+            </div>
+            <div class="form-group">
+                <label for="dateDebMaintenance">Date début de maintenance</label>
+                <input type="text" class="inputDate" uib-datepicker-popup="{{format}}" ng-model="DateDebMaintenance  " is-open="status.opened" min-date="minDate" max-date="maxDate" ng-required="true" close-text="Close" />
+                <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+
+                <label for="dateFinMaintenance">Date de fin de maintenance</label>
+                <input type="text" class="inputDate" uib-datepicker-popup="{{format}}" ng-model="DateFinMaintenance " is-open="statut.opened" min-date="min" max-date="maxDate" ng-required="true" close-text="Close" />
+                <button type="button" class="btn btn-default" ng-click="ouvrir()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </div>
+
+
+        </form>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">modifier</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">annuler</button>
+        </div>
+
+    </script>
+
+    <!-- Ajout d'un emplacement-->
+    <script type="text/ng-template" id="AjoutEmplacement.html">
+        <div class="modal-header"><h3 class="modal-title">Ajouter un emplacement</h3></div>
+        <form role="form" class="modal-body">
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select ng-model="emplacement.Type">
+                    <option>
+                        Tente
+                    </option>
+                    <option>
+                        Mobile-home
+                    </option>
+                    <option>
+                        Chalet
+                    </option>
+                </select>
+                <!--input type="text" class="form-control" id="Type" ng-model="emplacement.Type" /-->
+            </div>
+            <div class="form-group">
+                <label for="surface">Surface</label>
+                <input type="text" class="form-control" id="Surface" ng-model="emplacement.Surface" />
+            </div>
+            <div class="form-group">
+                <label for="nbPlaces">Nombre de places</label>
+                <input type="text" class="form-control" id="NbPlaces" ng-model="emplacement.NbPlaces" />
+            </div>
+            <div class="form-group">
+                <label for="prixBase">Prix de Base</label>
+                <input type="text" class="form-control" id="prixBase" ng-model="emplacement.PrixBase" />
+            </div>
+            <div class="form-group">
+                <label for="prixEnf">Prix pour un enfant supplémentaire</label>
+                <input type="text" class="form-control" id="prixEnf" ng-model="emplacement.PrixEnfSup" />
+            </div>
+            <div class="form-group">
+                <label for="prixAdult">Prix pour un adulte supplémentaire</label>
+                <input type="text" class="form-control" id="prixAdult" ng-model="emplacement.PrixAdultSup" />
+            </div>
+
+            <div class="form-group">
+                <label for="prixVehicule">Prix pour stationner un véhicule</label>
+                <input type="text" class="form-control" id="prixEnf" ng-model="emplacement.PrixVehicule" />
+            </div>
+            <div class="form-group">
+                <label for="prixElectricite">Prix pour la consommation d'électricté</label>
+                <input type="text" class="form-control" id="prixAdult" ng-model="emplacement.PrixElectricite" />
+            </div>
+
+        </form>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">ajouter</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">annuler</button>
+        </div>
+
+    </script>
+
+
+
+

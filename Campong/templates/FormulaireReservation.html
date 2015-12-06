@@ -1,0 +1,63 @@
+﻿<div class="containerDroite">
+<h3 class="text-center text-primary">Formulaire de demande de réservation</h3>
+</div>
+<div id="formulaireReservation">
+    <div id="informations">
+        <h3>Informations concernant le client</h3>
+        <form>
+            <label>Nom : </label><input type="text" disabled="disabled" ng-model="utilisateur.Nom" /><br />
+            <label>Prenom : </label><input type="text" disabled="disabled" ng-model="utilisateur.Prenom" /><br />
+            <label>Adresse Mail : </label><input type="text" disabled="disabled" ng-model="utilisateur.AdresseMail" /><br />
+            <label>Date de Naissance : </label><input type="text" disabled="disabled" ng-model="utilisateur.DateNaissance | date:'dd-MM-yyyy'" /><br />
+            <label>Adresse : </label><input type="text" disabled="disabled" ng-model="utilisateur.AdressePostale" /><br />
+        </form>
+        <h3>Informations concernant la réservation</h3>
+        <form>
+            <label>Date de début : </label><input type="date" disabled="disabled" ng-model="dateDeb" datetime="yyyy-MM-dd" /><br />
+            <label>Date de fin : </label><input type="date" disabled="disabled" ng-model="dateFin" datetime="yyyy-MM-dd" /><br />
+            <label>Numéro de l'emplacement :</label><input type="text" disabled="disabled" ng-model="emplacement.Numero" /><br />
+            <label>Type de l'emplacement :</label><input type="text" disabled="disabled" ng-model="emplacement.Type" /><br />
+            <label>Nombre de places maximum :</label><input type="text" disabled="disabled" ng-model="emplacement.NbPlaces" /><br />
+            <label>Superficie de l'emplacement (m²) :</label><input type="text" disabled="disabled" ng-model="emplacement.Surface" /><br />
+            <label>Nombre d'adultes :</label><select ng-model="nbAdultes" ng-change="nombreEnfants()"><option ng-repeat="adulte in adultes" value="{{adulte}}">{{adulte}}</option></select><br />
+            <label>Nombre d'enfants :</label><select ng-model="nbEnfants" ng-change="nombreAdultes()"><option ng-repeat="enfant in enfants" value="{{enfant}}">{{enfant}}</option></select><br />
+            <label>Nombre de véhicule :</label><select ng-model="nbVehicule" ng-change="nombreVehicule()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select><br />
+            <label class="labelCheckBox"><input ng-change="isElectricite()" id="checkBoxDateFerme" type="checkbox" ng-model="electricite" /> Electricité </label><br />
+            <label><input id="checkBoxDateFerme" type="checkbox" ng-model="dateFerme" /> Date de fin fixe </label>
+        </form>
+    </div>
+    <div id="bordGrisFacture">
+        <div id="bordNoirFacture">
+            <h3>Facture</h3>
+            <label>Nombre de nuits : </label>{{nbNuits}} <br />
+            <label>Prix de base : </label>{{emplacement.PrixBase}} €<br />
+            <label>Electricité : </label>{{electricite}}<br />
+            <hr />
+            <label>Sous-total : </label>{{sousTotPrixBase}} €<br /><br />
+            <label>Adulte(s) supplémentaire(s) : </label>{{nbAdultes-2}}<br />
+            <label>Prix adulte supplémentaire : </label>{{emplacement.PrixAdultSup}} €<br />
+            <hr />
+            <label>Sous-total : </label>{{sousTotAdulteSup}} €<br /><br />
+            <label>Enfant(s) supplémentaire(s) : </label>{{nbEnfants}}<br />
+            <label>Prix enfant supplémentaire : </label>{{emplacement.PrixEnfSup}} €<br />
+            <hr />
+            <label>Sous-total : </label>{{sousTotEnfSup}} €<br /><br />
+            <label>Nombre de véhicule(s) : </label>{{nbVehicule}}<br />
+            <label>Prix véhicule : </label>{{emplacement.PrixVehicule}} €<br />
+            <hr />
+            <label>Sous-total : </label>{{sousTotVehicule}} €<br /><br />
+            <hr />
+            <label>Total : </label>{{totalFacture}} €
+        </div>
+    </div>
+
+</div>
+<div id="boutonFormulaire">
+    <a class="btn btn-danger" href="#/Reservation">Retour </a>
+    <a class="btn btn-success" ng-click="confirmation()">Confirmer</a>
+</div>

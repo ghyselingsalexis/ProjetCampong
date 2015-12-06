@@ -1,0 +1,38 @@
+﻿<div class="containerDroite">
+    <h3 class="text-center text-primary">Confirmation des réservations</h3>
+    <div class="well" ng-hide="reservations.length">
+        <p>Il n'y a rien à afficher pour le moment.</p>
+    </div>
+    <div class="cadreExtTable" ng-show="reservations.length">
+        <div class="cadreIntTable">
+            <table class="table table-striped">
+                <tr>
+                    <td class="enteteTable">Id</td>
+                    <td class="enteteTable tireTableEntete">Adresse Mail</td>
+                    <td class="enteteTable tireTableEntete">Numéro de l'emplacement</td>
+                    <td class="enteteTable tireTableEntete"">Date de début de la réservation</td>
+                    <td class="enteteTable tireTableEntete">Date de fin de la réservation </td>
+                    <td class="enteteTable tireTableEntete">Nombre Enfant supplémentaire</td>
+                    <td class="enteteTable tireTableEntete">Nombre Adulte supplémentaire</td>
+                </tr>
+                <tr ng-repeat="reservation in reservations" ng-click="change(reservation)">
+                    <td align="center">{{reservation.Id}}</td>
+                    <td class="tireTableContenu">{{reservation.MailClient}}</td>
+                    <td class="tireTableContenu">{{reservation.NumeroEmplacement}}</td>
+                    <td class="tireTableContenu">{{reservation.DateDeb | date :'dd-MM-yyyy'}}</td>
+                    <td class="tireTableContenu">{{reservation.DateFin | date :'dd-MM-yyyy'}}</td>
+                    <td class="tireTableContenu">{{reservation.NbAdultes}}</td>
+                    <td class="tireTableContenu">{{reservation.NbEnfants}}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="ConfirmationReservation.html">
+    <h2>Confirmer cette réservation</h2>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="confirmer()">oui</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">non</button>
+    </div>
+</script>

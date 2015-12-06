@@ -1,0 +1,372 @@
+﻿body {
+    background-color:#A2C8EC;
+}
+p{
+    font-family:cookie;
+    font-size:22px;
+}
+#header{
+    height:auto;
+    margin-left:35%;
+    margin-top:1%;
+}
+#connexion{
+    position:absolute;
+    margin-left:50px;
+}
+#deconnexion{
+    position:absolute;
+    margin-top:25px;
+    width:330px;
+    text-align:right;
+}
+#labelEmail{
+    width:initial;
+    padding-right:48px;
+}
+#labelMdp{
+    width:initial;
+}
+#inputEmail{
+    width:140px;
+}
+#inputMdp{
+    margin-left:10px;
+    width:120px;
+}
+.btnConnexion{
+    position:absolute;
+    margin-top:20px;
+    margin-left:335px;
+}
+#btnInscrire{
+    margin-left:5px;
+}
+#cadreExtBanderole{
+    border:3px solid black;
+    height:156px;
+    width:100%;
+    margin-top:-2%;
+    z-index:-1;
+}
+#cadreIntBanderole{
+    border:3px solid grey;
+    height:150px;
+    width:100%;
+    background-image:url(../Images/banderole.jpg);
+}
+#cadreExtMenu{
+    position:fixed;
+    border:3px solid black;
+    width:20%;
+    margin-top:4%;
+    margin-left:5%;
+    float:left;
+}
+#cadreIntMenu{
+    border:3px solid grey;
+    padding-bottom:10%;
+    width:100%;
+    background-color:#E6E6E6;
+    padding:7%;
+}
+#menu{
+    font-family:Berkshire Swash;
+    font-size:30px;
+    margin-left:38%;
+    text-align:center;
+}
+#listeMenu{
+    font-family:playball;
+    font-size:20px;
+    margin-top:6%;
+}
+#ngview{
+    width:74%;
+    padding-top:1%;
+    padding-left:1%;
+    padding-right:1%;
+    float:right;
+    margin-bottom:140px;
+}
+#selectionDate{
+    margin-top:4%;
+    float:left;
+    width:55%;
+}
+.pCalendrier{
+    padding-left:4%;
+}
+#calDebut{
+    float:left;
+    width:50%;
+    padding-left:7%;
+}
+#calFin{
+    float:right;
+    width:50%;
+    padding-left:7%;
+}
+#rechercheEmplacement{
+    padding-left:41%;
+    padding-top:15%;
+}
+.cadreExtTable{
+    border:3px solid black;
+    margin:2%;
+    margin-top:5%;
+}
+.cadreIntTable{
+    border:3px solid grey;
+}
+.table {
+    width:100%;
+    margin-bottom: 0%;
+    background-color:#E5E5E5;
+    color:#07143B;
+}
+.enteteTable{
+    background-color:#286090;
+    color:#E5E5E5;
+    text-align:center;
+    font-size:18px;
+    font-family:playball;
+}
+.tireTableEntete{
+    font-size:18px;
+    font-family:playball;
+    border-left:3px dashed #E5E5E5;
+}
+.tireTableContenu{   
+    font-family:cookie;
+    font-size:22px;
+    border-left:3px dashed #286090;
+    text-align:center;
+}
+.tireTableContenuSupprimer{   
+    border-left:3px dashed #286090;
+}
+.btnAjouterAdmin{
+    font-size:20px;
+}
+#cadreExtPlan{
+    width:27%;
+    height:35%;
+    border:3px solid black;
+    float:right;
+    margin-top:6%;
+    margin-right:5%;
+    margin-left:42%;
+    position:fixed;
+}
+#cadreIntPlan{
+    width:100%;
+    height:100%;
+    border:3px solid grey;
+}
+#imgPlan{
+    width:100%;
+    height:100%;
+}
+#formulaireReservation{
+    font-family:cookie;
+    font-size:22px;
+    margin-left:10%;
+    margin-top:3%;
+}
+h3{
+    font-size:32px;
+    text-decoration:underline;
+}
+#informations{
+    float:left;
+}
+label
+{   
+	width: 250px;
+    font-weight:lighter;
+}
+#checkBoxDateFerme{
+    width:20px;
+}
+.labelCheckBox{
+    width:initial;
+}
+input{
+    width:160px;
+}
+select{
+    width:160px;
+}
+#bordGrisFacture{
+    border-left:3px solid grey;
+    width:54%;
+    float:right;
+}
+#bordNoirFacture{
+    border-left:3px solid black;
+    padding-left:10%;
+    padding-bottom:5%;
+    width:100%;
+    float:right;
+}
+hr{
+    margin-left:50%;
+    width:10%;
+}
+#boutonFormulaire{
+    margin-top:730px;
+    margin-left:38%;
+}
+#boutonFormulaire a{
+    width:156px;
+}
+#cadreExtInscription{
+    font-family:cookie;
+    font-size:21px;
+    border:3px solid black;
+    margin-top:3%;
+    margin-left:10%;
+    width:500px;
+}
+#cadreIntInscription{
+    border:3px solid grey;
+    padding-top:3%;
+    padding-bottom:2%;
+    padding-left:7%;
+}
+.inputInscription{
+    height:30px;
+}
+#btnFormulaireInscription{
+    margin-top:3%;
+    margin-left:38%;
+    font-size:21px;
+}
+#cadreExtLivreOr{
+    margin-top:2%;
+    margin-left:2%;
+    margin-right:2%;
+    border:3px solid black;
+}
+#cadreIntLivreOr{
+    border:3px solid grey;
+}
+.infoClientLivreOr{
+    background-color:#286090;
+    color:#E5E5E5;
+    font-size:18px;
+    font-family:playball;
+    padding-left:1%;
+}
+.messageClient{
+    background-color:#E5E5E5;
+    color:#07143B;
+    padding-left:3%;
+    padding-top:2%;
+    padding-bottom:2%;
+}
+#encodageMessage{
+    margin-top:2%;
+    margin-left:2%;
+    width:70%;
+}
+textarea{
+    width:100%;
+    height:20%;
+}
+#btnEnvoyerLivreOr{
+    font-size:20px;
+}
+.cadreExtPhotoGauche{
+    float:left;
+    border: 3px solid black;
+    margin-right:3%;
+}
+.cadreIntPhoto{
+    border:3px solid grey;
+}
+.cadreExtPhotoDroite{
+    float:right;
+    border: 3px solid black;
+    margin-left:3%;
+}
+#cadreExtPhotoAnimateurs {
+    border:3px solid black;
+    width:397px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#pDecouvrirFalaise{
+     padding-top:30px;
+     padding-bottom:20px;
+}
+#pDecouvrirPont{
+    padding-top:60px;
+    padding-bottom:30px;
+}
+#pDecouvrirJardinChinois{
+    margin-top:80px;
+    margin-bottom:60px;
+}
+#pDecouvrirSkiNautique{
+    margin-top:110px;
+    margin-bottom:50px;
+}
+#pDecouvrirCuveBrasserie{
+    margin-top:110px;
+    margin-bottom:100px;
+}
+#cadreExtPhotoAnimation{
+    margin-top:2%;
+    margin-bottom:2%;
+    display: block;
+    width:778px;
+    margin-left: auto;
+    margin-right: auto;
+    border:3px solid black;
+}
+#cadreIntPhotoAnimation{
+    border:3px solid grey;
+    display: block;
+    width:772px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#cadreExtPhotoAccueil{
+    width:462px;
+    border:3px solid black;
+    margin-top:4%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.cadreExtInfo{
+    margin-top:5%;
+    border-top:3px solid black;
+}
+.cadreIntInfo{
+    border-top:3px solid grey;
+}
+.infoAccueil{
+    margin-top:1%;
+    text-align:center;
+}
+.containerDroite{
+    
+    font-family:cookie;
+    font-size:22px;
+    margin-left:4%;
+    margin-top:3%;
+    width:80%
+}
+.containerAdmin{
+    font-family:cookie;
+    font-size:22px;
+}
+#footer{
+    background-image:url(../Images/footer.png);
+    height:135px;
+    position:fixed;
+    bottom:0px;
+    width:100%;
+}

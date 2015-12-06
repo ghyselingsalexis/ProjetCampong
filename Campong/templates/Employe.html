@@ -1,0 +1,119 @@
+﻿<div class="containerAdmin">
+
+    <h3 class="text-center text-primary">Gestion des employés</h3>
+    <div class="well">
+        <a class="btn btn-default btnAjouterAdmin" ng-click="ajouter()">Ajouter</a>
+
+    </div>
+    <div class="cadreExtTable">
+        <div class="cadreIntTable">
+            <table class="table table-striped">
+                <tr>
+                    <td class="enteteTable">Nom</td>
+                    <td class="enteteTable tireTableEntete">Prénom</td>
+                    <td class="enteteTable tireTableEntete">Affectation</td>
+                    <td class="enteteTable tireTableEntete"></td>
+
+                </tr>
+                <tr ng-repeat="employe in employes" ng-click="modifier(employe)">
+                    <td align="center">{{employe.Nom}}</td>
+                    <td class="tireTableContenu">{{employe.Prenom}}</td>
+                    <td class="tireTableContenu">{{employe.Affectation}}</td>
+
+                    <td class="glyphicon glyphicon-remove tireTableContenuSupprimer" ng-click="supprimer($index)"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Modification d'un employé-->
+<script type="text/ng-template" id="GestionEmploye.html">
+    <div class="modal-header"><h3 class="modal-title">Modifier un employé</h3></div>
+    <form role="form" class="modal-body">
+        <div class="form-group">
+            <label for="nom">Nom d'utilisation</label>
+            <input type="text" class="form-control" id="Nom" ng-model="employe.NomUtilisateur" disabled="disabled" />
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="Nom" ng-model="employe.Nom" />
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control" id="Prenom" ng-model="employe.Prenom" />
+        </div>
+        <div class="form-group">
+            <label for="nom">Mot de passe</label>
+            <input type="password" class="form-control" id="Nom" ng-model="employe.MdpEmploye" />
+        </div>
+        <div class="form-group">
+            <label for="affectation">Affectation</label>
+            <select ng-model="employe.Affectation">
+                <option>
+                    Tente
+                </option>
+                <option>
+                    Mobile-home
+                </option>
+                <option>
+                    Chalet
+                </option>
+            </select>
+        </div>
+
+
+    </form>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">modifier</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">annuler</button>
+    </div>
+
+</script>
+<script type="text/ng-template" id="AjoutEmploye.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Ajouter un employé</h3>
+    </div>
+    <form role="form" class="modal-body">
+        <div class="form-group">
+            <label for="nom">Nom d'utilisateur</label>
+            <input type="text" class="form-control" id="Nom" ng-model="Ajoutemploye.NomUtilisateur" />
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="Nom" ng-model="Ajoutemploye.Nom" />
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control" id="Prenom" ng-model="Ajoutemploye.Prenom" />
+        </div>
+        <div class="form-group">
+            <label for="nom">Mot de passe</label>
+            <input type="password" class="form-control" id="Nom" ng-model="Ajoutemploye.MdpEmploye" />
+        </div>
+        <div class="form-group">
+            <label for="affectation">Affectation</label>
+            <select ng-model="Ajoutemploye.Affectation">
+                <option>
+                    Tente
+                </option>
+                <option>
+                    Mobile-home
+                </option>
+                <option>
+                    Chalet
+                </option>
+            </select>
+
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ajout()">ajouter</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">annuler</button>
+    </div>
+
+</script>
+
+
+
+
+

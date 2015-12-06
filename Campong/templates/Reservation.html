@@ -1,0 +1,49 @@
+﻿<div class="containerDroite">
+    <h3 class="text-center text-primary">Réservation</h3>
+</div>
+<div id="selectionDate">
+    <div id="calDebut">
+        <p class="pCalendrier">Date du début de votre séjour</p>
+        <input type="text" class="inputDate" uib-datepicker-popup="{{format}}" ng-model="dateDeb" is-open="status.opened" min-date="minDate" max-date="maxDate" ng-required="true" close-text="Close" />
+        <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+    </div>
+    
+    <div id="calFin">
+        <p class="pCalendrier">Date de fin de votre séjour</p>
+        <input type="text" class="inputDate" uib-datepicker-popup="{{format}}" ng-model="dateFin" is-open="statut.opened" min-date="min" max-date="maxDate" ng-required="true" close-text="Close" />
+        <button type="button" class="btn btn-default" ng-click="ouvrir()"><i class="glyphicon glyphicon-calendar"></i></button>
+    </div>
+    <div id="rechercheEmplacement">
+
+        <a class="btn btn-success" ng-click="rechercher()">Rechercher</a>
+    </div>
+    <div class="alert alert-warning" ng-show="isLoading">
+        Chargement en cours...
+    </div>
+    <div class="cadreExtTable"  ng-show="emplacements.length">
+        <div class="cadreIntTable">
+            <table class="table table-striped">
+                <tr>
+                    <td class="enteteTable">Numéro</td>
+                    <td class="enteteTable tireTableEntete">Type</td>
+                    <td class="enteteTable tireTableEntete">Nombre de places</td>
+                    <td class="enteteTable tireTableEntete">Surface (m²)</td>
+                    <td class="enteteTable tireTableEntete"></td>
+                </tr>
+               <tr ng-repeat="emplacement in emplacements">
+                    <td align="center">{{emplacement.Numero}}</td>
+                    <td class="tireTableContenu">{{emplacement.Type}}</td>
+                   <td class="tireTableContenu">{{emplacement.NbPlaces}}</td>
+                   <td class="tireTableContenu">{{emplacement.Surface}}</td>
+
+                   <td class="tireTableContenu"><a ng-click="envoiParametre(emplacement)" >Choisir</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="cadreExtPlan">
+    <div id="cadreIntPlan">
+        <img id="imgPlan" src="..\Images\plan.jpg" />
+    </div>
+</div>

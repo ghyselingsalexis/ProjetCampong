@@ -1,0 +1,30 @@
+﻿<div class="containerDroite">
+    <h3 class="text-center text-primary">Livre d'or</h3>
+    <div class="alert alert-warning" ng-hide="isLoading">
+        Chargement en cours...
+    </div>
+    <div id="cadreExtLivreOr" ng-show="isLoading">
+        <div id="cadreIntLivreOr">
+            <div ng-repeat="livre in livres">
+                <div class="infoClientLivreOr">
+                    {{livre.Nom}} {{livre.Prenom}} {{livre.DateRedaction | date:'M/d/yy h:mm a'}}
+                </div>
+                <div class="messageClient">
+                    {{livre.Texte}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="formulaireLivreOr" id="encodageMessage">
+        <label>Laisser votre message ici :</label><br />
+        <textarea ng-model="texte"></textarea><br />
+        <a class="btn btn-success" ng-click="envoyer()" id="btnEnvoyerLivreOr">Envoyer</a>
+    </div>
+
+    <div class="cadreExtInfo">
+        <div class="cadreIntInfo">
+            <p class="infoAccueil">Campong – 087/12.25.15 (téléphone) -  087/12.25.16 (fax) – campong@primuscoin.brg</p>
+            <p class="infoAccueil">Rue du jardin de Seive, 7, 3209 Primuscoin</p>
+        </div>
+    </div>
+</div>

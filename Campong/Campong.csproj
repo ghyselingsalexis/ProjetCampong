@@ -264,8 +264,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Campong.mdf" />
-    <Content Include="App_Data\Campong_log.ldf" />
+    <EmbeddedResource Include="App_Data\Campong.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="App_Data\Campong_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Images\accrobranche.jpg" />
     <Content Include="Images\animateurs.jpg" />
